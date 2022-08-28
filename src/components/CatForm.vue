@@ -42,8 +42,8 @@ export default {
         return this.newCat.wholesale;
       },
       set: function (value) {
-        let amount = parseFloat (value);
-        let markup = parseFloat( amount * .2);
+        let amount = parseFloat(value);
+        let markup = parseFloat(amount * 0.2);
         this.newCat.wholesale = amount;
         this.newCat.price = amount + markup;
       },

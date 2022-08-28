@@ -31,6 +31,20 @@ export default {
     total: function() {
       return this.cat.price + this.tax;
     }
+  },
+  watch: {
+    // tax: function ( newVal, oldVal) {
+    //   console.log(newVal + ' used to be ' + oldVal);
+    // }
+    tax: {
+      handler: 'taxTesting',
+      immediate: true
+    }
+  },
+  methods: {
+    taxTesting: function() {
+      console.log('Tax has Changed')
+    }
   }
 };
 
