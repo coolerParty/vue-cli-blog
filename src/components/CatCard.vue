@@ -7,7 +7,9 @@
           {{ cat.title }}
         </h1>
         <p>{{ cat.msg }}</p>
-        <a v-if="cat.link" :href="cat.link" target="_blank">{{ cat.link }}</a>
+        <div>Price: $ {{ cat.price.toFixed(2) }}</div>
+        <div>Tax: $ {{ tax.toFixed(2) }}</div>
+        <div>Total: $ {{ total.toFixed(2) }}</div>
       </div>
       <div v-else>
         <strong>{{ cat.id }} This is not available.</strong>
@@ -22,7 +24,16 @@ export default {
   props: {
     cat: Object,
   },
+  computed: {
+    tax: function() {
+      return this.cat.price * .03;
+    },
+    total: function() {
+      return this.cat.price + this.tax;
+    }
+  }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
