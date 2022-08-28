@@ -4,9 +4,7 @@
     <cat-card
       v-for="item in listOfCats"
       v-bind:key="item.id"
-      :title="item.title"
-      :msg="item.msg"
-      :link="item.link"
+      :cat="item"
     />
   </div>
 </template>
@@ -24,18 +22,21 @@ export default {
           title: "Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
+          visible: false
         },
         {
           id: 2,
           title: "Big Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
+          visible: true
         },
         {
           id: 3,
           title: "Bigger Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
+          visible: false
         },
       ],
     };
