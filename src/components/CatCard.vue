@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <hr />
-    <div v-if="cat.visible == true" class="CatCard">
+  <div class="catCart" :style="{
+    background: cat.background
+  }">
+    <div v-if="cat.visible == true">
       <h2>{{ cat.id }}</h2>
-      <h1>{{ cat.title }}</h1>
+      <h1
+        :style="{
+        color: cat.color
+      }"
+      >
+        {{ cat.title }}
+      </h1>
       <p>{{ cat.msg }}</p>
       <a :href="cat.link">{{ cat.link }}</a>
     </div>
@@ -11,7 +18,9 @@
       <h2>{{ cat.id }}</h2>
       <h1>{{ cat.title }}</h1>
     </div>
-    <div v-else>
+    <div v-else :style="{
+        color: cat.color
+      }">
       <strong>{{ cat.id }} This is not available.</strong>
     </div>
   </div>
@@ -28,18 +37,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.catCart {
+  display: inline-flex;
+  border: 1px solid #e6e6e6;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
+    <br>
     <cat-card
       v-for="item in listOfCats"
       v-bind:key="item.id"
@@ -22,21 +23,34 @@ export default {
           title: "Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
-          visible: false
+          visible: true,
+          color: "red",
+          background: "gray"
         },
         {
           id: 2,
           title: "Big Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
-          visible: true
+          visible: true,
+          color: "blue",
         },
         {
           id: 3,
           title: "Bigger Cats",
           msg: "Welcome to Your Vue.js App",
           link: "www.cats.com",
-          visible: false
+          visible: false,
+          color: "yellow",
+          background: "green"
+        },
+        {
+          id: 4,
+          title: "Biggest Cats",
+          msg: "Welcome to Your Vue.js App",
+          link: "www.cats.com",
+          visible: false,
+          color: "purple",
         },
       ],
     };
