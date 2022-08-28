@@ -1,17 +1,13 @@
 <template>
-  <a :href="cat.link">
+  <a :href="cat.link" v-if="cat.title">
     <div :class="[cat.visible ? 'visible' : 'invisible', 'catCard']">
       <div v-if="cat.visible == true">
-      <img :src="cat.image" alt="" class="catImage">
+      <img v-if="cat.image" :src="cat.image" alt="" class="catImage">
         <h1>
           {{ cat.title }}
         </h1>
         <p>{{ cat.msg }}</p>
-        <a :href="cat.link" target="_blank">{{ cat.link }}</a>
-      </div>
-      <div v-else-if="cat.id == 3">
-        <img :src="cat.image" alt="" class="catImage">
-        <h1>{{ cat.title }}</h1>
+        <a v-if="cat.link" :href="cat.link" target="_blank">{{ cat.link }}</a>
       </div>
       <div v-else>
         <strong>{{ cat.id }} This is not available.</strong>
@@ -49,7 +45,7 @@ export default {
   background: grey;
 }
 .catImage{
-  width: 100%;
+  width: 100px;
   height: 100px;
   object-fit: cover;
 }
