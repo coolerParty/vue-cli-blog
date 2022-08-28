@@ -2,9 +2,18 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <br>
+    <div class="newCat">
+      <h3>Add a Cat</h3>
+      <div><span>Title: </span> <input type="text" v-model="newCat.title"></div>
+      <div><span>Message: </span> <input type="text" v-model="newCat.msg"></div>
+      <div><span>Link: </span> <input type="text" v-model="newCat.link"></div>
+      <div><span>Image URL: </span> <input type="text" v-model="newCat.image"></div>
+      <br>
+      <cat-card :cat="newCat"/>
+    </div>
     <cat-card
-      v-for="item in listOfCats"
-      v-bind:key="item.id"
+      v-for="(item, index) in listOfCats"
+      v-bind:key="index"
       :cat="item"
     />
   </div>
@@ -17,43 +26,40 @@ export default {
   name: "App",
   data: function () {
     return {
+      newCat: {
+        title: "",
+        msg: "",
+        link: "",
+        visible: true,
+        image: "",
+      },
       listOfCats: [
         {
-          id: 1,
           title: "Cats",
           msg: "Welcome to Your Vue.js App",
           link: "http://www.cats.com",
           visible: true,
-          color: "red",
-          background: "gray",
           image: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",
         },
         {
-          id: 2,
           title: "Big Cats",
           msg: "Welcome to Your Vue.js App",
           link: "http://www.cats.com",
           visible: true,
-          color: "blue",
           image: "https://d3544la1u8djza.cloudfront.net/APHI/Blog/2016/10_October/Do+Cats+Get+Pink+Eye+_+ASPCA+Pet+Health+Insurance+_+orange+tabby+cat+with+green+eyes-min.jpg",
         },
         {
-          id: 3,
           title: "Bigger Cats",
           msg: "Welcome to Your Vue.js App",
           link: "http://www.cats.com",
           visible: true,
-          color: "yellow",
-          background: "green",
           image: "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-08/220805-domestic-cat-mjf-1540-382ba2.jpg",
         },
         {
-          id: 4,
           title: "Biggest Cats",
           msg: "Welcome to Your Vue.js App",
           link: "http://www.cats.com",
-          visible: false,
-          color: "purple",
+          visible: true,
           image: "https://i.pinimg.com/474x/2c/8d/47/2c8d47ae73ff9469c50503c1b3dd3d33--largest-domestic-cat-cat-face.jpg",
         },
       ],
@@ -73,5 +79,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.newCat {
+  width: 300px;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 </style>
